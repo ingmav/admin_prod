@@ -1,0 +1,68 @@
+<div class="wrapper">
+    <app-menu></app-menu>
+    <app-menu-lateral></app-menu-lateral>
+  
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Inventario
+            <!--<small>LISTA</small>-->
+        </h1>
+      </section>
+      <section class="content">
+
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Lista</h3>
+                  <button type="button" class="btn btn-default" (click)="listar(1);"><i class="fa fa-refresh"></i></button>
+                  <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <button type="button" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+                      <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar">
+    
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                      <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>CANTIDAD DOSPINIBLE</th>
+                                <th>CANTIDAD MINIMA</th>
+                                <th>MONTO INVENTARIO</th>
+                                <th></th>
+                            </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor="let item of lista_inventario; let i=index">
+                            <td style="vertical-align: middle;cursor:pointer;" ><a routerLink="/denuncia/registro-seguimiento/{{ item.id }}">{{ item.ID }} </a></td>
+                            <td style="vertical-align: middle;cursor:pointer;" ><a routerLink="/denuncia/registro-seguimiento/{{ item.id }}">{{ item.NOMBRE_ARTICULO }} </a></td>
+                            <td style="vertical-align: middle;cursor:pointer;" ><a routerLink="/denuncia/registro-seguimiento/{{ item.id }}">{{ item.RESTANTE }} </a></td>
+                            <td style="vertical-align: middle;cursor:pointer;" ><a routerLink="/denuncia/registro-seguimiento/{{ item.id }}">{{ item.CANTIDAD_MINIMA }} </a></td>
+                            <td style="vertical-align: middle;cursor:pointer;" ><a routerLink="/denuncia/registro-seguimiento/{{ item.id }}">{{ item.COMPRA }} </a></td>
+                        </tr>
+                        <tr *ngIf="lista_inventario.length == 0">
+                            <td colspan="6" style="vertical-align: middle;cursor:pointer; color:#888;">Esta lista está vacía.</td>                    
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    
+                  </tbody></table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+          </div>
+        </section>
+    </div>
+</div>
